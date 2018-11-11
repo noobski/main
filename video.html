@@ -1,0 +1,49 @@
+<video autoplay></video>
+
+    <script language="javascript" type="text/javascript">
+    function onVideoFail(e) {
+        console.log('webcam fail!', e);
+      };
+
+    window.URL = window.URL || window.webkitURL;
+    navigator.getUserMedia  = navigator.getUserMedia || 
+                             navigator.webkitGetUserMedia ||
+                              navigator.mozGetUserMedia || 
+                               navigator.msGetUserMedia;
+
+    var video = document.querySelector('video');
+    var streamRecorder;
+    var webcamstream;
+
+    <!-- if (navigator.getUserMedia) { -->
+      navigator.getUserMedia({audio: true, video: true}, function(stream) {
+        video.src = window.URL.createObjectURL(stream);
+        webcamstream = stream;
+    //  streamrecorder = webcamstream.record();
+      }, onVideoFail);
+    <!-- }  -->
+
+    function startRecording() {
+        streamRecorder = webcamstream.record();
+        setTimeout(stopRecording, 1000);
+    }
+    function stopRecording() {
+        streamRecorder.getRecordedData(postVideoToServer);
+    }
+    function postVideoToServer(videoblob) {
+
+        var data = {};
+        data.video = videoblob;
+        data.metadata = 'test metadata';
+        data.action = "upload_video";
+        jQuery.post("http://www.kongraju.in/uploadvideo.php", data, onUploadSuccess);
+    }
+    function onUploadSuccess() {
+        alert ('video uploaded');
+    }
+
+    </script>
+
+    <div id="webcamcontrols">
+        <button class="recordbutton" onclick="startRecording();">RECORD</button>
+    </div>

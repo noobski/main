@@ -1,0 +1,57 @@
+<html>
+<style>
+
+div {
+    font-size:9px;
+    color:grey;
+}
+
+table {
+  margin:1em auto;
+}
+td {
+  height:30px;
+  width:30px;
+  border:1px solid;
+  text-align:center;
+  color:black;
+}
+td:first-child {
+  border-left:4px solid;
+}
+td:nth-child(3n) {
+  border-right:4px solid ;
+}
+td#new {
+    color:blue;
+}
+tr:first-child {
+  border-top:4px solid;
+}
+tr:nth-child(1) td {
+  border-top:4px solid ;
+}
+tr:nth-child(3n) td {
+  border-bottom:4px solid ;
+}
+$(td).hover(hoverFunc());
+</style>
+
+<h3>Soduko Solver</h3>
+
+<table id="table">
+</table>
+
+<button onclick="drawEasy()">Choose Easy Puzzle</button><br>
+<button onclick="drawHard1()">Choose Hard Puzzle #132</button><br>
+<button onclick="drawHard2()">Choose Hard Puzzle #130</button><br>
+<button onclick="drawHardOther1()">Choose Very Hard Puzzle from Web #1</button><br>
+<button onclick="drawEvil()">Choose Evil Puzzle from Web #1</button><br>
+<br>
+<button onclick="start()"><b>SOLVE IT!!</b></button>
+<br>
+<font id="possibles"></font>
+
+
+<script src=soduko.js></script>
+</html>

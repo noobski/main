@@ -1,0 +1,16 @@
+TO LEARN / TO DO in JS
+======================
+
+PROJECTS:
+- minesweeper; network version where you can compete against other people (e.g. best time in 10 minutes)
+- tetris (also with network version)
+
+- go over the whole JS tutorial again
+
+
+- re-write the space invaders in one go
+- create a molequle simulation; use the 'clouds' from the pong game, creat 1,000 clouds, each with a constant energy (dx/dy), and show that as number of clouds increases, they shake faster
+- look at 'speed coding' videos on youtube
+- invent games that simlate real life (like a bird flying in the air avoiding airplanes, or a worm trying to eat leaves without falling or being eaten)
+- do a zoomin/zoomout on the tree
+- see computer courses here: https://www.youtube.com/user/shiffman/playlists
